@@ -1,9 +1,7 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Salary Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This web app receives form data (employee first and last name, ID number, job title and annual salary) and displays it in a table. The total monthly cost of the employees' salaries is displayed and the display area turns red if the total exceeds $20,000.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Employees can be removed from the table and the total will update accordingly.

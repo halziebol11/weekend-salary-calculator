@@ -10,7 +10,7 @@ function handleSubmit(event){
     let idNumber = document.querySelector('#id-number').value;
     let jobTitle = document.querySelector('#job-title').value;
     let annualSalary = document.querySelector('#annual-salary').value;
-    let annualSalInt = parseInt(annualSalary)
+    let annualSalInt = (parseInt(annualSalary)/12)
     document.querySelector('#employee-table').innerHTML += `
     <tr>
         <td>${firstName}</td>
@@ -31,7 +31,7 @@ function removeEmployee(event){
     getConfirmation()
     if(move== true){
         let cell = event.target.parentElement.closest('tr').querySelector(':nth-child(5)')
-        let reduction = parseInt(cell.innerHTML)
+        let reduction = (parseInt(cell.innerHTML) / 12)
         monthlyCost -= reduction;
         event.target.closest('tr').remove();
         updateMonthlyCost();

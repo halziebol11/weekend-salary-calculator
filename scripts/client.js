@@ -1,3 +1,5 @@
+//emptyform after submit ???
+
 let monthlyCost = 0; //variable to track total of employee salaries
 
 //function to enter values from form into table
@@ -8,6 +10,7 @@ function handleSubmit(event){
     let idNumber = document.querySelector('#id-number').value;
     let jobTitle = document.querySelector('#job-title').value;
     let annualSalary = document.querySelector('#annual-salary').value;
+    let annualSalInt = parseInt(annualSalary)
     document.querySelector('#employee-table').innerHTML += `
     <tr>
         <td>${firstName}</td>
@@ -18,8 +21,9 @@ function handleSubmit(event){
         <td><button onClick="removeEmployee(event)">remove</button></td>
     </tr>
     `;
-    monthlyCost += annualSalary;
+    monthlyCost += annualSalInt;
     updateMonthlyCost();
+    document.querySelector('#form').reset();
 }
 
 //function to remove employee based on getConfirmation() results
@@ -49,5 +53,12 @@ function getConfirmation(){
 
  //function to update monthly cost, feeds into handleSubmit() and removeEmployee()
  function updateMonthlyCost(){
-    document.querySelector('#monthly-cost').innerHTML = `Total Monthly Cost: ${monthlyCost}`
+    let query = document.querySelector('#monthly-cost')
+    query.innerHTML = `Total Monthly Cost: ${monthlyCost}`
+    if(monthlyCost>20000){
+       query.style.backgroundColor = "red";
+    }
+    else{
+        query.style.backgroundColor = "white"
+    }
  }

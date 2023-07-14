@@ -1,3 +1,5 @@
+let monthlyCost = 0; //variable to track total of employee salaries
+
 //function to enter values from form into table
 function handleSubmit(event){
     event.preventDefault();
@@ -13,23 +15,26 @@ function handleSubmit(event){
         <td>${idNumber}</td>
         <td>${jobTitle}</td>
         <td>${annualSalary}</td>
-        <td><button onClick="remove(event)">remove</button></td>
+        <td><button onClick="removeEmployee(event)">remove</button></td>
     </tr>
-    `
+    `;
+    monthlyCost += annualSalary;
+    updateMonthlyCost();
 }
 
 //function to remove employee based on getConfirmation() results
-function remove(event){
+function removeEmployee(event){
     getConfirmation()
     if(move== true){
+        let cell = event.target.parentElement.closest('tr').querySelector(':nth-child(5)')
+        let reduction = parseInt(cell.innerHTML)
+        monthlyCost -= reduction;
         event.target.closest('tr').remove();
-    }
-    else {
-        alert ("Choose the employee you would like to remove.")
+        updateMonthlyCost();
     }
 }
 
-let move = false;
+let move = false; //variable for dialog box
 
 //function for confirmation dialog box
 function getConfirmation(){
@@ -40,4 +45,9 @@ function getConfirmation(){
     else {
         move = false;
     }
+ }
+
+ //function to update monthly cost, feeds into handleSubmit() and removeEmployee()
+ function updateMonthlyCost(){
+    document.querySelector('#monthly-cost').innerHTML = `Total Monthly Cost: ${monthlyCost}`
  }

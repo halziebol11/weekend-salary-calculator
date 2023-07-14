@@ -1,3 +1,4 @@
+//function to enter values from form into table
 function handleSubmit(event){
     event.preventDefault();
     let firstName = document.querySelector('#first-name').value;
@@ -17,6 +18,26 @@ function handleSubmit(event){
     `
 }
 
+//function to remove employee based on getConfirmation() results
 function remove(event){
-    event.target.closest('tr').remove();
+    getConfirmation()
+    if(move== true){
+        event.target.closest('tr').remove();
+    }
+    else {
+        alert ("Choose the employee you would like to remove.")
+    }
 }
+
+let move = false;
+
+//function for confirmation dialog box
+function getConfirmation(){
+    const response = confirm("Are you sure you want to remove this employee?");
+    if (response) {
+         move = true;
+    } 
+    else {
+        move = false;
+    }
+ }

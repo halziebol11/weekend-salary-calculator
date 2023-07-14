@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="styles/stylesheet.css">
         <meta charset="utf-8">
         <title>Salary Calculator</title>
     </head>
     <body>
+        <div id="submit-form">
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" id="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+                <input type="text" id="id-number" placeholder="ID Number" required>
+                <input type="text" id="job-title" placeholder="Job Title" required>
+                <input type="number" id="annual-salary" placeholder="Annual Salary" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div>
+            <h1>Employees</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="employee-table">
+                </tbody>
+            </table>
+         </div>
 
-        <script src="/scripts/client.js"></script>
+        <script src="scripts/client.js"></script>
     </body>
 </html>
